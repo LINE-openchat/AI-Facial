@@ -70,7 +70,7 @@
       grid.innerHTML = "";
 
       for (const file of data) {
-        const { data: urlData } = await supabase.storage.from("photos").getPublicUrl(file.name);
+        const { data: urlData } = await supabase.storage.from("hozonyou").getPublicUrl(file.name);
         const img = document.createElement("img");
         img.src = urlData.publicUrl;
         img.className = "photo";
