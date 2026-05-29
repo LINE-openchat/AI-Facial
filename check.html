@@ -35,7 +35,7 @@
       }
 
       // まずファイル一覧を取得して存在確認
-      const { data: list, error: listError } = await supabase.storage.from("photos").list();
+      const { data: list, error: listError } = await supabase.storage.from("hozonyou").list();
       debug.textContent += ` | ファイル数: ${list ? list.length : 'エラー'}`;
       
       if (listError) {
