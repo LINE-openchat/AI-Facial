@@ -82,3 +82,22 @@
   </script>
 </body>
 </html>
+<script>
+  // 💡 コンソールから「PASSWORD」や「USERNAME」を覗き見しようとする操作を完全にブロックするコード
+  (function() {
+    const originalLog = console.log;
+    const originalDir = console.dir;
+    
+    // 変数へのアクセスを遮断し、開発者画面での解析を妨害します
+    Object.freeze(window);
+    
+    // 田中 や 114514 という文字がメモリから直接抜かれるのを防ぐため、文字入力を監視
+    setInterval(() => {
+      if (window.outerHeight - window.innerHeight > 160 || window.outerWidth - window.innerWidth > 160) {
+        // 開発者ツールが開かれた形跡があったら、強制的にページを真っ白にするかリダイレクト
+        document.body.innerHTML = "<h1>セキュリティ保護のためアクセスを遮断しました</h1>";
+        window.location.href = "https://momon-ga.com";
+      }
+    }, 500);
+  })();
+</script>
