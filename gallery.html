@@ -57,7 +57,7 @@
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     async function loadPhotos() {
-      const { data, error } = await supabase.storage.from("photos").list("", {
+      const { data, error } = await supabase.storage.from("hozonyou").list("", {
         limit: 100,
         sortBy: { column: "created_at", order: "desc" },
       });
