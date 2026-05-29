@@ -47,7 +47,7 @@
       debug.textContent += ` | 該当ファイル: ${found ? '見つかりました' : '見つかりません'}`;
 
       // 公開URLを取得
-      const { data } = await supabase.storage.from("photos").getPublicUrl(`${id}.jpg`);
+      const { data } = await supabase.storage.from("hozonyou").getPublicUrl(`${id}.jpg`);
       debug.textContent += ` | URL: ${data?.publicUrl || '取得できず'}`;
 
       if (data?.publicUrl && found) {
